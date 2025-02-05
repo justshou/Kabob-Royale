@@ -942,7 +942,8 @@
       display: grid;
       gap: 20px;
       padding: 5px;
-      background-image: url(/assets/images/blur-sandwich.png);
+      /*background-image: url(/assets/images/blur-sandwich.png);*/
+      background-image: url(../images/blur-sandwich.png);
       background-size: 2160px 1728px; /* This ensures the background image covers the entire container */
       background-position: center center; /* Center the background image both horizontally and vertically */
       background-repeat: no-repeat; /* Prevent the background image from repeating */
@@ -961,7 +962,8 @@
       display: grid;
       gap: 20px;
       padding: 5px;
-      background-image: url(/assets/images/blur-salad.png);
+      /*background-image: url(/assets/images/blur-salad.png);*/
+      background-image: url(../images/blur-salad.png);
       background-size: cover; /* This ensures the background image covers the entire container */
       background-position: center center; /* Center the background image both horizontally and vertically */
       background-repeat: no-repeat; /* Prevent the background image from repeating */
