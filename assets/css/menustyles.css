@@ -961,7 +961,7 @@
       display: grid;
       gap: 20px;
       padding: 5px;
-      background-image: url(/assets/images/blur\ salad.png);
+      background-image: url(/assets/images/blur-salad.png);
       background-size: cover; /* This ensures the background image covers the entire container */
       background-position: center center; /* Center the background image both horizontally and vertically */
       background-repeat: no-repeat; /* Prevent the background image from repeating */
