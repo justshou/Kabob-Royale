@@ -968,6 +968,20 @@
       background-position: center center; /* Center the background image both horizontally and vertically */
       background-repeat: no-repeat; /* Prevent the background image from repeating */
     }
+
+    .menu-buttons {
+      display: flex;
+      gap: 10px; /* Adds spacing between buttons */
+      justify-content: center; /* Centers buttons */
+      flex-wrap: wrap; /* Ensures responsiveness on smaller screens */
+      background-color: var(--eerie-black-1);
+      padding: 5px;
+  }
+
+  .menu-buttons .btn {
+    background-color: var(--eerie-black-1);
+  }
+  
     
     .menu-stuff-4{
       margin-top: 20px;
