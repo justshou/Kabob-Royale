@@ -996,7 +996,7 @@
       display: grid;
       gap: 20px;
       padding: 5px;
-      background-image: url(../images/blur-salad.png); /* CHANGE TO SOUP PICTURE */
+      /*background-image: url(../images/blur-salad.png); /* CHANGE TO SOUP PICTURE */
       background-size: cover; /* This ensures the background image covers the entire container */
       background-position: center center; /* Center the background image both horizontally and vertically */
       background-repeat: no-repeat; /* Prevent the background image from repeating */
