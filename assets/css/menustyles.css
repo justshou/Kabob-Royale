@@ -1064,8 +1064,8 @@ body.nav-active {
   display: grid;
   gap: 20px;
   padding: 5px;
-  /*background-image: url(/assets/images/blur-sandwich.png);*/
-  background-image: url(../images/blur-sandwich.png);
+  /*background-image: url(/assets/images/blur-sandwich.jpg);*/
+  background-image: url(../images/blur-sandwich.jpg);
   background-size: 2160px 1728px; /* This ensures the background image covers the entire container */
   background-position: center center; /* Center the background image both horizontally and vertically */
   background-repeat: no-repeat; /* Prevent the background image from repeating */
