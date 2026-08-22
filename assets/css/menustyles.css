@@ -338,7 +338,7 @@ body.nav-active {
 }
 
 .section-subtitle::after {
-  content: url(../images/separator.svg);
+  content: url(../images/decorative/separator.svg);
   display: block;
   width: 100px;
   margin-inline: auto;
@@ -940,7 +940,7 @@ body.nav-active {
   transform: translateX(-50%);
   width: 140px;
   height: 100%;
-  background-image: url("../images/img-pattern.svg");
+  background-image: url("../images/decorative/img-pattern.svg");
   background-position: center;
   background-size: cover;
   background-repeat: repeat;
@@ -1020,7 +1020,7 @@ body.nav-active {
   left: 50%;
   transform: translateX(-50%);
   width: 140px;
-  background-image: url("../images/img-pattern.svg");
+  background-image: url("../images/decorative/img-pattern.svg");
   background-repeat: repeat;
 }
 
@@ -1064,8 +1064,7 @@ body.nav-active {
   display: grid;
   gap: 20px;
   padding: 5px;
-  /*background-image: url(/assets/images/blur-sandwich.jpg);*/
-  background-image: url(../images/blur-sandwich.jpg);
+  background-image: url(../images/photos/blur-sandwich.jpg);
   background-size: 2160px 1728px; /* This ensures the background image covers the entire container */
   background-position: center center; /* Center the background image both horizontally and vertically */
   background-repeat: no-repeat; /* Prevent the background image from repeating */
@@ -1084,8 +1083,7 @@ body.nav-active {
   display: grid;
   gap: 20px;
   padding: 5px;
-  /*background-image: url(/assets/images/blur-salad.png);*/
-  background-image: url(../images/blur-salad.jpg);
+  background-image: url(../images/photos/blur-salad.jpg);
   background-size: cover; /* This ensures the background image covers the entire container */
   background-position: center center; /* Center the background image both horizontally and vertically */
   background-repeat: no-repeat; /* Prevent the background image from repeating */
@@ -1117,7 +1115,7 @@ body.nav-active {
   display: grid;
   gap: 20px;
   padding: 5px;
-  background-image: url(../images/sides.jpg); /* CHANGE TO SOUP PICTURE */
+  background-image: url(../images/photos/soup-bg.jpg);
   background-size: cover; /* This ensures the background image covers the entire container */
   background-position: center center; /* Center the background image both horizontally and vertically */
   background-repeat: no-repeat; /* Prevent the background image from repeating */
@@ -1125,15 +1123,21 @@ body.nav-active {
 
 .menu-item {
   overflow: hidden;
-  transition: transform 0.2s;
+  background-color: var(--black-alpha-15);
+  border: 1px solid var(--white-alpha-10);
+  border-radius: 16px;
+  box-shadow: var(--shadow-1);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s, border-color 0.2s;
 }
 
 .menu-item:hover {
   transform: scale(1.05);
+  border-color: var(--kr-gold);
 }
 
 .menu-item-info {
-  padding: 5px;
+  padding: 16px 20px;
 }
 
 .price {
@@ -1231,7 +1235,7 @@ section {
 .footer-brand {
   position: relative;
   padding: 50px 40px;
-  background: var(--smoky-black-1) url("../images/footer-form-bg.png");
+  background: var(--smoky-black-1) url("../images/decorative/footer-form-bg.png");
   background-position: center top;
   background-repeat: repeat;
 }
@@ -1241,7 +1245,7 @@ section {
   top: 0;
   width: 15px;
   height: 100%;
-  background-image: url("../images/footer-form-pattern.svg");
+  background-image: url("../images/decorative/footer-form-pattern.svg");
 }
 
 .footer-brand::before {
