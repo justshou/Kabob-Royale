@@ -52,7 +52,7 @@
 
 </head>
 
-<body>
+<body id="top">
 
 <!--
 
@@ -125,8 +125,8 @@
 <header class="header" data-header>
     <div class="container">
 
-        <a href="#" class="logo">
-            <img src="./assets/images/branding/kabob-royale-logo.png" width="160" height="50" alt="Kabob Royale"> <!-- change to kabob royale-->
+        <a href="./index.html" class="logo" aria-label="Kabob Royale home">
+            <img src="./assets/images/branding/kabob-royale-logo.png" width="160" height="50" alt="Kabob Royale">
         </a>
 
         <nav class="navbar" data-navbar>
@@ -135,13 +135,13 @@
                 <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
             </button>
 
-            <a href="#" class="logo">
-                <img src="./assets/images/branding/kabob-royale-logo.png" width="160" height="50" alt="Kabob Royale"> <!-- change to kabob royale-->
+            <a href="./index.html" class="logo" aria-label="Kabob Royale home">
+                <img src="./assets/images/branding/kabob-royale-logo.png" width="160" height="50" alt="Kabob Royale">
             </a>
 
             <ul class="navbar-list">
                 <li class="navbar-item">
-                    <a href="#home" class="navbar-link hover-underline active">
+                    <a href="#home" class="navbar-link hover-underline active" aria-current="page">
                         <div class="separator"></div>
                             <span class="span">Home</span>
                     </a>
@@ -150,6 +150,12 @@
                     <a href="./menu.html" class="navbar-link hover-underline">
                         <div class="separator"></div>
                             <span class="span">Menus</span>
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#order-online" class="navbar-link hover-underline">
+                        <div class="separator"></div>
+                            <span class="span">Order Online</span>
                     </a>
                 </li>
                 <!--
@@ -183,16 +189,16 @@
 
         </nav>
 
-        <a href="tel:2485481111" class="btn btn-secondary">
-            <span class="text text-1">Call Now</span>
+        <a href="#order-online" class="btn btn-secondary">
+            <span class="text text-1">Order Online</span>
 
-            <span class="text text-2" area-hidden="true">Call Now</span>
+            <span class="text text-2" aria-hidden="true">Order Online</span>
         </a>
 
-        <button class="nav-open-btn" area-label="open menu" data-nav-toggler>
+        <button class="nav-open-btn" aria-label="Open menu" aria-expanded="false" data-nav-toggler>
             <span class="line line-1"></span>
-            <span class="line line-1"></span>
-            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
         </button>
 
         <div class="overlay" data-nav-toggler data-overlay></div>
@@ -212,10 +218,10 @@
 
         <!-- hero section -->
 
-        <section class="hero text-center" area-label="home" id="home">
+        <section class="hero text-center" aria-label="Featured promotions" id="home">
             <ul class="hero-slider" data-hero-slider>
 
-                <li class="slider-item active" data-hero-slider-item>
+                <li class="slider-item active" aria-hidden="false" data-hero-slider-item>
       
                   <div class="slider-bg">
                     <img src="./assets/images/photos/kabob-hero-1.jpg" width="1880" height="950" alt="" fetchpriority="high" class="img-cover">
@@ -227,16 +233,16 @@
 
                   <p class="body-2 hero-text slider-reveal">Order Carry-Out today!</p>
 
-                  <a href="./menu.html" class="btn btn-primary slider-reveal">
-                    <span class="text text-1">View our Menu</span>
+                  <a href="#order-online" class="btn btn-primary slider-reveal">
+                    <span class="text text-1">Order Online</span>
 
-                    <span class="text text-2" aria-hidden="true">View our Menu</span>
+                    <span class="text text-2" aria-hidden="true">Order Online</span>
                   </a>
 
 
                 </li>
 
-                <li class="slider-item" data-hero-slider-item>
+                <li class="slider-item" aria-hidden="true" data-hero-slider-item>
       
                     <div class="slider-bg">
                       <img src="./assets/images/photos/hummus.jpg" width="1880" height="950" alt="" class="img-cover">
@@ -244,7 +250,7 @@
   
                     <p class="label-2 section-subtitle slider-reveal">Catering Available</p>
   
-                    <h1 class="display-1 hero-title slider-reveal">We offer catering <br> to all events!</h1>
+                    <h2 class="display-1 hero-title slider-reveal">We offer catering <br> to all events!</h2>
   
                     <p class="body-2 hero-text slider-reveal">Call now!</p>
   
@@ -259,7 +265,7 @@
   
                   </li>
 
-                <li class="slider-item" data-hero-slider-item>
+                <li class="slider-item" aria-hidden="true" data-hero-slider-item>
       
                 <div class="slider-bg">
                     <img src="./assets/images/photos/tray.jpg" width="1880" height="950" alt="" class="img-cover">
@@ -267,7 +273,7 @@
   
                 <p class="label-2 section-subtitle slider-reveal">Always Fresh</p>
   
-                <h1 class="display-1 hero-title slider-reveal">Ingredients are picked <br> up daily!</h1>
+                <h2 class="display-1 hero-title slider-reveal">Ingredients are picked <br> up daily!</h2>
   
                 <p class="body-2 hero-text slider-reveal">Try the best, from the best.</p>
   
@@ -284,12 +290,16 @@
 
             </ul>
 
-            <button class="slider-btn prev" aria-label="slide to previous" data-prev-btn>
-                <ion-icon name="chevron-back"></ion-icon>
+            <button class="slider-btn prev" aria-label="Previous slide" data-prev-btn>
+                <ion-icon name="chevron-back" aria-hidden="true"></ion-icon>
             </button>
 
-            <button class="slider-btn next" aria-label="slide to next" data-next-btn>
-                <ion-icon name="chevron-forward"></ion-icon>
+            <button class="slider-btn next" aria-label="Next slide" data-next-btn>
+                <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+            </button>
+
+            <button class="slider-pause-btn" type="button" aria-label="Pause slideshow" aria-pressed="false" data-slider-pause>
+                <ion-icon name="pause-outline" aria-hidden="true" data-slider-pause-icon></ion-icon>
             </button>
 
             <a href="tel:2485481111" class="hero-btn has-after">
@@ -298,6 +308,23 @@
                 <span class="label-2 text-center span">Call Ahead</span>
             </a>
 
+        </section>
+
+        <section class="order-online text-center" id="order-online" aria-labelledby="order-online-title">
+          <p class="section-subtitle label-2">Delivery &amp; Pickup</p>
+          <h2 class="headline-1" id="order-online-title">Order Online</h2>
+          <p class="order-online-text">Choose your preferred delivery service.</p>
+
+          <div class="order-options">
+            <a href="https://www.doordash.com/store/kabob-royale-madison-heights-850394/" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Order from Kabob Royale on DoorDash (opens in a new tab)">
+              <span class="text text-1">DoorDash</span>
+              <span class="text text-2" aria-hidden="true">DoorDash</span>
+            </a>
+            <a href="https://www.ubereats.com/store/kabob-royale/k8wQ-eXvWe-vcl3Kac6y2w" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="Order from Kabob Royale on Uber Eats (opens in a new tab)">
+              <span class="text text-1">Uber Eats</span>
+              <span class="text text-2" aria-hidden="true">Uber Eats</span>
+            </a>
+          </div>
         </section>
 
 
@@ -405,8 +432,7 @@
             <h2 class="headline-1 section-title">Family Owned from the Start</h2>
 
             <p class="section-text">
-              Opened in 2019, we have been serving our community for the past 5 years. We have been residents of Madison Heights for two decades,
-              and love the community 
+              Since opening in 2019, we have proudly served the community we call home. Our family has lived in Madison Heights for more than two decades.
             </p>
 
             <!--<div class="contact-label">Book Through Call</div>
@@ -423,7 +449,7 @@
 
           <figure class="about-banner">
 
-            <img src="./assets/images/photos/about-banner.jpg" width="570" height="570" loading="lazy" alt="about banner"
+            <img src="./assets/images/photos/about-banner.jpg" width="570" height="570" loading="lazy" alt="A Kabob Royale meal prepared with fresh ingredients"
               class="w-100" data-parallax-item data-parallax-speed="1">
 
           </figure>
@@ -438,7 +464,7 @@
         style="background-image: url('./assets/images/photos/testimonials-bg.jpg')" aria-label="testimonials">
         <div class="container">
 
-          <div class="quote">”</div>
+          <div class="quote" aria-hidden="true">”</div>
 
           <p class="headline-2 testi-text">
             The customer service these fellows have is top-notch. They were welcoming as soon as I stepped in the door. They helped me figure out the menu as
@@ -451,12 +477,12 @@
             <div class="separator"></div>
           </div>
 
-            <p class="label-2 profile-name">-Google Reviewer</p>
-          </div>
-
+          <p class="label-2 profile-name">— Google Reviewer</p>
         </div>
       </section>
 
+    </article>
+</main>
 
 <!-- 
     - #FOOTER
@@ -470,8 +496,8 @@
 
         <div class="footer-brand has-before has-after">
 
-          <a href="#" class="logo">
-            <img src="./assets/images/branding/kabob-royale-logo.png" width="160" height="50" loading="lazy" alt="kabob royale home">
+          <a href="./index.html" class="logo" aria-label="Kabob Royale home">
+            <img src="./assets/images/branding/kabob-royale-logo.png" width="160" height="50" loading="lazy" alt="Kabob Royale">
           </a>
 
           <address class="body-4">
@@ -498,7 +524,7 @@
         <ul class="footer-list">
 
           <li>
-            <a href="#" class="label-2 footer-link hover-underline">Home</a>
+            <a href="./index.html" class="label-2 footer-link hover-underline">Home</a>
           </li>
 
           <li>
@@ -541,15 +567,6 @@
   </footer>
 
 
-
-
-
-
-
-
-
-    </article>
-</main>
 
 <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
   <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>

@@ -143,6 +143,11 @@
   }
   
   button { cursor: pointer; }
+
+  :focus-visible {
+    outline: 3px solid var(--kr-gold);
+    outline-offset: 4px;
+  }
   
   address { font-style: normal;}
   
@@ -158,12 +163,9 @@
     font-size: var(--fontSize-body-4);
     font-weight: var(--weight-regular);
     line-height: var(--lineHeight-5);
-    /* overflow: hidden; 19:40*/ 
-    
-    height: 300vh;
   }
   
-  body.loaded {overflow: overlay; }
+  body.loaded {overflow: auto; }
   
   body.nav-active {overflow: hidden; }
   
@@ -365,6 +367,28 @@
   }
   
   .btn-secondary .text-2 {color: var(--white);}
+
+  .order-online {
+    padding: 50px 20px;
+    background-color: var(--eerie-black-2);
+    scroll-margin-top: 110px;
+  }
+
+  .order-online .headline-1 {
+    font-size: clamp(3.2rem, 5vw, 5rem);
+  }
+
+  .order-online-text {
+    margin-block: 10px 24px;
+    color: var(--quick-silver);
+  }
+
+  .order-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
   
   .has-before,
   .has-after {
@@ -752,6 +776,31 @@
   \*-----------------------------------*/
   
   .hero .slider-btn {display: none;}
+
+  .slider-pause-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%);
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--white-alpha-20);
+    border-radius: var(--radius-circle);
+    background-color: var(--black-alpha-80);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    font-size: 18px;
+    opacity: 0.7;
+    transition: var(--transition-1);
+  }
+
+  .slider-pause-btn:is(:hover, :focus-visible) {
+    border-color: var(--kr-gold);
+    color: var(--kr-gold);
+    opacity: 1;
+  }
   
   .hero {
     position: relative;
@@ -1272,6 +1321,18 @@
     #MEDIA QUERIES
   \*-----------------------------------*/
   
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   /* recently added */
   @media (max-width: 575px) {
     .about-banner > .w-100 {

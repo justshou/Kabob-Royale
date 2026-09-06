@@ -1,167 +1,167 @@
 'use strict';
 
+const addEventOnElements = (elements, eventType, callback) => {
+  elements.forEach((element) => element.addEventListener(eventType, callback));
+};
 
+/** Page loading state */
+const preloader = document.querySelector('[data-preaload]');
 
-/**
- * PRELOAD
- * 
- * loading will be end after document is loaded
- */
-
-const preloader = document.querySelector("[data-preaload]");
-
-window.addEventListener("load", function () {
-  preloader.classList.add("loaded");
-  document.body.classList.add("loaded");
+window.addEventListener('load', () => {
+  preloader?.classList.add('loaded');
+  document.body.classList.add('loaded');
 });
 
+/** Mobile navigation */
+const navbar = document.querySelector('[data-navbar]');
+const navTogglers = document.querySelectorAll('[data-nav-toggler]');
+const overlay = document.querySelector('[data-overlay]');
+const navOpenButton = document.querySelector('.nav-open-btn');
 
+const setNavbarOpen = (isOpen) => {
+  navbar?.classList.toggle('active', isOpen);
+  overlay?.classList.toggle('active', isOpen);
+  document.body.classList.toggle('nav-active', isOpen);
+  navOpenButton?.setAttribute('aria-expanded', String(isOpen));
+};
 
-/**
- * add event listener on multiple elements
- */
+addEventOnElements(navTogglers, 'click', () => {
+  setNavbarOpen(!navbar?.classList.contains('active'));
+});
 
-const addEventOnElements = function (elements, eventType, callback) {
-  for (let i = 0, len = elements.length; i < len; i++) {
-    elements[i].addEventListener(eventType, callback);
-  }
-}
+navbar?.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener('click', () => {
+    if (navbar.classList.contains('active')) setNavbarOpen(false);
+  });
+});
 
-
-
-/**
- * NAVBAR
- */
-
-const navbar = document.querySelector("[data-navbar]");
-const navTogglers = document.querySelectorAll("[data-nav-toggler]");
-const overlay = document.querySelector("[data-overlay]");
-
-const toggleNavbar = function () {
-  navbar.classList.toggle("active");
-  overlay.classList.toggle("active");
-  document.body.classList.toggle("nav-active");
-}
-
-addEventOnElements(navTogglers, "click", toggleNavbar);
-
-
-
-/**
- * HEADER & BACK TOP BTN
- */
-
-const header = document.querySelector("[data-header]");
-const backTopBtn = document.querySelector("[data-back-top-btn]");
-
-let lastScrollPos = 0;
-
-const hideHeader = function () {
-  const isScrollBottom = lastScrollPos < window.scrollY;
-  if (isScrollBottom) {
-    header.classList.add("hide");
-  } else {
-    header.classList.remove("hide");
-  }
-
-  lastScrollPos = window.scrollY;
-}
-
-window.addEventListener("scroll", function () {
-  if (window.scrollY >= 50) {
-    header.classList.add("active");
-    backTopBtn.classList.add("active");
-    hideHeader();
-  } else {
-    header.classList.remove("active");
-    backTopBtn.classList.remove("active");
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && navbar?.classList.contains('active')) {
+    setNavbarOpen(false);
+    navOpenButton?.focus();
   }
 });
 
-/**
- * hero slider
- */
+/** Header and back-to-top button */
+const header = document.querySelector('[data-header]');
+const backTopButton = document.querySelector('[data-back-top-btn]');
+let lastScrollPosition = 0;
 
+window.addEventListener('scroll', () => {
+  const hasScrolled = window.scrollY >= 50;
+  header?.classList.toggle('active', hasScrolled);
+  backTopButton?.classList.toggle('active', hasScrolled);
 
-const heroSlider = document.querySelector("[data-hero-slider]");
-const heroSliderItems = document.querySelectorAll("[data-hero-slider-item]");
-const heroSliderPrevBtn = document.querySelector("[data-prev-btn]");
-const heroSliderNextBtn = document.querySelector("[data-next-btn]");
-
-let currentSlidePos = 0;
-let lastActiveSliderItem = heroSliderItems[0];
-
-const updateSliderPos = function () {
-  lastActiveSliderItem.classList.remove("active");
-  heroSliderItems[currentSlidePos].classList.add("active");
-  lastActiveSliderItem = heroSliderItems[currentSlidePos];
-}
-
-const slideNext = function () {
-  if (currentSlidePos >= heroSliderItems.length -1) {
-    currentSlidePos = 0;
+  if (hasScrolled && header) {
+    header.classList.toggle('hide', lastScrollPosition < window.scrollY);
   } else {
-    currentSlidePos++;
+    header?.classList.remove('hide');
   }
 
-  updateSliderPos();
+  lastScrollPosition = window.scrollY;
+}, { passive: true });
+
+/** Hero slider (homepage only) */
+const heroSlider = document.querySelector('[data-hero-slider]');
+const heroSliderItems = [...document.querySelectorAll('[data-hero-slider-item]')];
+const previousButton = document.querySelector('[data-prev-btn]');
+const nextButton = document.querySelector('[data-next-btn]');
+const pauseButton = document.querySelector('[data-slider-pause]');
+const pauseIcon = document.querySelector('[data-slider-pause-icon]');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+if (heroSlider && heroSliderItems.length && previousButton && nextButton) {
+  let currentSlide = 0;
+  let autoSlideInterval;
+  let userPaused = false;
+
+  const showSlide = (position) => {
+    currentSlide = (position + heroSliderItems.length) % heroSliderItems.length;
+
+    heroSliderItems.forEach((item, index) => {
+      const isActive = index === currentSlide;
+      item.classList.toggle('active', isActive);
+      item.setAttribute('aria-hidden', String(!isActive));
+    });
+  };
+
+  const stopAutoSlide = () => {
+    window.clearInterval(autoSlideInterval);
+  };
+
+  const startAutoSlide = () => {
+    stopAutoSlide();
+    if (!userPaused) {
+      autoSlideInterval = window.setInterval(() => showSlide(currentSlide + 1), 7000);
+    }
+  };
+
+  const updatePauseControl = () => {
+    pauseButton?.setAttribute('aria-pressed', String(userPaused));
+    pauseButton?.setAttribute('aria-label', userPaused ? 'Resume slideshow' : 'Pause slideshow');
+    pauseIcon?.setAttribute('name', userPaused ? 'play-outline' : 'pause-outline');
+  };
+
+  const setPaused = (isPaused) => {
+    userPaused = isPaused;
+    updatePauseControl();
+    isPaused ? stopAutoSlide() : startAutoSlide();
+  };
+
+  nextButton.addEventListener('click', () => {
+    showSlide(currentSlide + 1);
+    startAutoSlide();
+  });
+
+  previousButton.addEventListener('click', () => {
+    showSlide(currentSlide - 1);
+    startAutoSlide();
+  });
+
+  pauseButton?.addEventListener('click', () => {
+    const shouldPause = !userPaused;
+
+    if (!shouldPause) {
+      showSlide(currentSlide + 1);
+    }
+
+    setPaused(shouldPause);
+  });
+  updatePauseControl();
+  showSlide(0);
+  startAutoSlide();
+  window.addEventListener('load', startAutoSlide, { once: true });
 }
 
-heroSliderNextBtn.addEventListener("click", slideNext);
+/** Subtle pointer parallax (homepage only) */
+const parallaxItems = document.querySelectorAll('[data-parallax-item]');
 
-const slidePrev = function () {
-  if (currentSlidePos <= 0) {
-    currentSlidePos = heroSliderItems.length -1;
-  } else {
-    currentSlidePos--;
-  }
+if (parallaxItems.length && !reduceMotion.matches) {
+  window.addEventListener('mousemove', (event) => {
+    const pointerX = -((event.clientX / window.innerWidth * 10) - 5);
+    const pointerY = -((event.clientY / window.innerHeight * 10) - 5);
 
-  updateSliderPos();
+    parallaxItems.forEach((item) => {
+      const speed = Number(item.dataset.parallaxSpeed) || 1;
+      item.style.transform = `translate3d(${pointerX * speed}px, ${pointerY * speed}px, 0)`;
+    });
+  }, { passive: true });
 }
 
-heroSliderPrevBtn.addEventListener("click", slidePrev);
+/** Reveal menu categories as they enter the viewport */
+const menuSections = document.querySelectorAll('main article[class*="menu-stuff-"]');
 
-/**
- * auto slide
- */
+if (menuSections.length && 'IntersectionObserver' in window && !reduceMotion.matches) {
+  document.documentElement.classList.add('reveal-ready');
 
-let autoSlideInterval;
+  const sectionObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
 
-const autoSlide = function () {
-  autoSlideInterval = setInterval(function () {
-    slideNext();
-  }, 7000)
+  menuSections.forEach((section) => sectionObserver.observe(section));
 }
-
-addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseover", function () {
-  clearInterval(autoSlideInterval);
-});
-
-addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseout", autoSlide);
-
-window.addEventListener("load", autoSlide);
-
-/**
- * PARALLAX EFFECT
- */
-
-const parallaxItems = document.querySelectorAll("[data-parallax-item]");
-
-let x, y;
-
-window.addEventListener("mousemove", function (event) {
-
-  x = (event.clientX / window.innerWidth * 10) - 5;
-  y = (event.clientY / window.innerHeight * 10) - 5;
-
-  // reverse the number eg. 20 -> -20, -5 -> 5
-  x = x - (x * 2);
-  y = y - (y * 2);
-
-  for (let i = 0, len = parallaxItems.length; i < len; i++) {
-    x = x * Number(parallaxItems[i].dataset.parallaxSpeed);
-    y = y * Number(parallaxItems[i].dataset.parallaxSpeed);
-    parallaxItems[i].style.transform = `translate3d(${x}px, ${y}px, 0px)`;
-  }
-
-});

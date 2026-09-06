@@ -55,17 +55,8 @@
 
 </head>
 
-<body>
+<body id="top">
 
-<!--
-
-    pre loader
--->
-    <div class="preload" data-preaload>
-        <div class="circle"></div>
-        <p class="text">Kabob Royale</p>
-    </div>
-    
 <!--
     #top bar
 -->
@@ -128,8 +119,8 @@
 <header class="header" data-header>
     <div class="container">
 
-        <a href="#" class="logo">
-            <img src="./assets/images/branding/kabob-royale-logo.png" width="160" height="50" alt="Kabob Royale"> <!-- change to kabob royale-->
+        <a href="./index.html" class="logo" aria-label="Kabob Royale home">
+            <img src="./assets/images/branding/kabob-royale-logo.png" width="160" height="50" alt="Kabob Royale">
         </a>
 
         <nav class="navbar" data-navbar>
@@ -138,8 +129,8 @@
                 <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
             </button>
 
-            <a href="#" class="logo">
-                <img src="./assets/images/branding/kabob-royale-logo.png" width="160" height="50" alt="Kabob Royale"> <!-- change to kabob royale-->
+            <a href="./index.html" class="logo" aria-label="Kabob Royale home">
+                <img src="./assets/images/branding/kabob-royale-logo.png" width="160" height="50" alt="Kabob Royale">
             </a>
 
             <ul class="navbar-list">
@@ -150,9 +141,15 @@
                     </a>
                 </li>
                 <li class="navbar-item">
-                    <a href="./menu.html" class="navbar-link hover-underline active">
+                    <a href="./menu.html" class="navbar-link hover-underline active" aria-current="page">
                         <div class="separator"></div>
                             <span class="span">Menus</span>
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#order-online" class="navbar-link hover-underline">
+                        <div class="separator"></div>
+                            <span class="span">Order Online</span>
                     </a>
                 </li>
                 <!--
@@ -186,16 +183,16 @@
 
         </nav>
 
-        <a href="tel:2485481111" class="btn btn-secondary">
-            <span class="text text-1">Call Now</span>
+        <a href="#order-online" class="btn btn-secondary">
+            <span class="text text-1">Order Online</span>
 
-            <span class="text text-2" area-hidden="true">Call Now</span>
+            <span class="text text-2" aria-hidden="true">Order Online</span>
         </a>
 
-        <button class="nav-open-btn" area-label="open menu" data-nav-toggler>
+        <button class="nav-open-btn" aria-label="Open menu" aria-expanded="false" data-nav-toggler>
             <span class="line line-1"></span>
-            <span class="line line-1"></span>
-            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
         </button>
 
         <div class="overlay" data-nav-toggler data-overlay></div>
@@ -205,10 +202,43 @@
 </header>
 
 <main>
+    <header class="menu-hero">
+        <div class="menu-hero-content">
+            <p class="menu-hero-eyebrow">Fresh &middot; Homemade &middot; Family Owned</p>
+            <h1 class="menu-page-title">Our Menu</h1>
+            <p class="menu-hero-text">Mediterranean favorites prepared fresh with recipes passed down through our family.</p>
+        </div>
+    </header>
 
-    
+    <div class="order-online" id="order-online" role="region" aria-labelledby="order-online-title">
+        <div class="order-online-copy">
+            <p class="order-online-eyebrow">Delivery &amp; Pickup</p>
+            <h2 class="title-1" id="order-online-title">Order Online</h2>
+            <p class="order-online-text">Choose your preferred delivery service.</p>
+        </div>
 
-    <article class="menu-stuff-1 ">
+        <div class="order-options">
+            <a href="https://www.doordash.com/store/kabob-royale-madison-heights-850394/" class="btn btn-primary" target="_blank" rel="noopener noreferrer" aria-label="Order from Kabob Royale on DoorDash (opens in a new tab)">
+                <span class="text text-1">DoorDash</span>
+                <span class="text text-2" aria-hidden="true">DoorDash</span>
+            </a>
+            <a href="https://www.ubereats.com/store/kabob-royale/k8wQ-eXvWe-vcl3Kac6y2w" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" aria-label="Order from Kabob Royale on Uber Eats (opens in a new tab)">
+                <span class="text text-1">Uber Eats</span>
+                <span class="text text-2" aria-hidden="true">Uber Eats</span>
+            </a>
+        </div>
+    </div>
+
+    <nav class="menu-quick-nav" aria-label="Menu categories">
+        <a href="#sandwiches">Sandwiches</a>
+        <a href="#entrees">Entrees</a>
+        <a href="#appetizers">Appetizers</a>
+        <a href="#trays">Party Trays</a>
+        <a href="#sides">Soups &amp; Sides</a>
+        <a href="#trays-to-go">Trays To Go</a>
+    </nav>
+
+    <article class="menu-stuff-1">
 
         <!--
         <div class="menu-buttons">
@@ -224,7 +254,7 @@
         <section>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Shawarma (Beef or Chicken)</h2>
+                    <h3>Shawarma (Beef or Chicken)</h3>
                     <p></p>
                     <p class="price">$6.99</p>
                 </div>
@@ -232,7 +262,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Shawarma Mix (Beef and Chicken)</h2>
+                    <h3>Shawarma Mix (Beef and Chicken)</h3>
                     <p></p>
                     <p class="price">$6.99</p>
                 </div>
@@ -240,7 +270,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Kafta (Beef or Chicken)</h2>
+                    <h3>Kafta (Beef or Chicken)</h3>
                     <p></p>
                     <p class="price">$6.99</p>
                 </div>
@@ -248,7 +278,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Tikka</h2>
+                    <h3>Chicken Tikka</h3>
                     <p></p>
                     <p class="price">$7.49</p>
                 </div>
@@ -256,7 +286,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Cream Chop</h2>
+                    <h3>Chicken Cream Chop</h3>
                     <p></p>
                     <p class="price">$7.49</p>
                 </div>
@@ -264,7 +294,7 @@
             
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Beef Tikka (Tenderloin)</h2>
+                    <h3>Beef Tikka (Tenderloin)</h3>
                     <p></p>
                     <p class="price">$8.99</p>
                 </div>
@@ -272,21 +302,21 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Falafel</h2>
+                    <h3>Falafel</h3>
                     <p></p>
                     <p class="price">$6.99</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Vegetarian Greek</h2>
+                    <h3>Vegetarian Greek</h3>
                     <p></p>
                     <p class="price">$6.99</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Tabbouli Hummus Wrap</h2>
+                    <h3>Tabbouli Hummus Wrap</h3>
                     <p></p>
                     <p class="price">$6.99</p>
                 </div>
@@ -301,7 +331,7 @@
         <section>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>The Royale</h2>
+                    <h3>The Royale</h3>
                     <p>Served with your choice of three meats, includes rice and stew
                         or soup</p>
                     <p class="price">$23.99</p>
@@ -310,14 +340,14 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Lamb Shank</h2>
+                    <h3>Lamb Shank</h3>
                     <p>Homestyle with rice and stew or soup</p>
                     <p class="price">$23.99</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Beef Tikka</h2>
+                    <h3>Beef Tikka</h3>
                     <p>10 pc charbroiled tenderloin chunks of beef</p>
                     <p class="price">$23.99</p>
                 </div>
@@ -325,7 +355,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Beef Tikka</h2>
+                    <h3>Beef Tikka</h3>
                     <p>5 pc charbroiled tenderloin chunks of beef with rice and stew 
                         or soup</p>
                     <p class="price">$20.99</p>
@@ -333,7 +363,7 @@
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Tikka</h2>
+                    <h3>Chicken Tikka</h3>
                     <p>10 pc charbroiled tender chicken chunks.</p>
                     <p class="price">$18.99</p>
                 </div>
@@ -341,7 +371,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Tikka</h2>
+                    <h3>Chicken Tikka</h3>
                     <p>5 pc charbroiled tender chicken chunks with rice and stew or 
                         soup</p>
                     <p class="price">$17.99</p>
@@ -349,7 +379,7 @@
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Beef Shawarma</h2>
+                    <h3>Beef Shawarma</h3>
                     <p>Charbroiled marinated beef</p>
                     <p class="price">$17.99</p>
                 </div>
@@ -357,7 +387,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Beef Shawarma</h2>
+                    <h3>Beef Shawarma</h3>
                     <p>Charbroiled marinated beef with rice and stew or soup</p>
                     <p class="price">$17.99</p>
                 </div>
@@ -365,7 +395,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Shawarma</h2>
+                    <h3>Chicken Shawarma</h3>
                     <p>Charbroiled marinated chicken breast</p>
                     <p class="price">$17.99</p>
                 </div>
@@ -373,7 +403,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Shawarma</h2>
+                    <h3>Chicken Shawarma</h3>
                     <p>Charbroiled marinated chicken breast with rice and stew or soup</p>
                     <p class="price">$17.99</p>
                 </div>
@@ -381,7 +411,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Beef Kafta Kabob</h2>
+                    <h3>Beef Kafta Kabob</h3>
                     <p>4 skewer seasoned ground beef</p>
                     <p class="price">$17.99</p>
                 </div>
@@ -389,7 +419,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Beef Kafta Kabob</h2>
+                    <h3>Beef Kafta Kabob</h3>
                     <p>2 skewer seasoned ground beef with rice and stew or soup</p>
                     <p class="price">$17.99</p>
                 </div>
@@ -397,7 +427,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Kafta Kabob</h2>
+                    <h3>Chicken Kafta Kabob</h3>
                     <p>4 skewer seasoned ground chicken</p>
                     <p class="price">$17.99</p>
                 </div>
@@ -405,7 +435,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Kafta Kabob</h2>
+                    <h3>Chicken Kafta Kabob</h3>
                     <p>2 skewer seasoned ground chicken with rice and stew or soup</p>
                     <p class="price">$17.99</p>
                 </div>
@@ -413,7 +443,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Cream Chop</h2>
+                    <h3>Chicken Cream Chop</h3>
                     <p>2 pc seasoned breaded tender chicken</p>
                     <p class="price">$18.99</p>
                 </div>
@@ -421,7 +451,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Cream Chop</h2>
+                    <h3>Chicken Cream Chop</h3>
                     <p>1 pc seasoned breaded tender chicken with rice and stew</p>
                     <p class="price">$17.99</p>
                 </div>
@@ -429,7 +459,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Beef Chili-fry</h2>
+                    <h3>Beef Chili-fry</h3>
                     <p>Stir fry beef with onions, green peppers, tomatoes,
                         garlic and potato served over rice*</p>
                     <p class="price">$17.99</p>
@@ -438,7 +468,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Chili-fry</h2>
+                    <h3>Chicken Chili-fry</h3>
                     <p>Stir fry chicken with onions, green peppers, tomatoes,
                         garlic and potato served over rice*</p>
                     <p class="price">$17.99</p>
@@ -447,7 +477,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Catfish</h2>
+                    <h3>Catfish</h3>
                     <p>Charbroiled with rice and stew</p>
                     <p class="price">$20.99</p>
                 </div>
@@ -455,7 +485,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Mujadara (Beef or Chicken)</h2>
+                    <h3>Mujadara (Beef or Chicken)</h3>
                     <p>Burgal and lentil with caramelized onion and meat</p>
                     <p class="price">$17.99</p>
                 </div>
@@ -463,7 +493,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Mujadara</h2>
+                    <h3>Mujadara</h3>
                     <p>Burgal and lentil with caramelized onions</p>
                     <p class="price">$13.99</p>
                 </div>
@@ -471,7 +501,7 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Falafel</h2>
+                    <h3>Falafel</h3>
                     <p>8 pc hummus, garlic, and pickled mango sauce</p>
                     <p class="price">$11.99</p>
                 </div>
@@ -480,78 +510,78 @@
     </article>
 
     <article class="menu-stuff-3 ">
-        <h2 class="menu-category" id="#appetizers">Appetizers & Salads</h2>
+        <h2 class="menu-category" id="appetizers">Appetizers &amp; Salads</h2>
         <section>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Fattoush</h2>
+                    <h3>Fattoush</h3>
                     <p class="price">Regular: $7.99<br>Large: $9.99</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Fattoush</h2>
+                    <h3>Chicken Fattoush</h3>
                     <p class="price">Regular: $11.99<br>Large: $14.99</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Tabbouli</h2>
+                    <h3>Tabbouli</h3>
                     <p class="price">Regular: $6.99<br>Large: $8.99</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Tabbouli</h2>
+                    <h3>Chicken Tabbouli</h3>
                     <p class="price">Regular: $8.99<br>Large: $10.99</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Caesar Salad</h2>
+                    <h3>Caesar Salad</h3>
                     <p class="price">Regular: $7.99<br>Large: $9.99</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Caesar</h2>
+                    <h3>Chicken Caesar</h3>
                     <p class="price">Regular: $11.99<br>Large: $14.99</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Grilled Chicken Salad</h2>
+                    <h3>Grilled Chicken Salad</h3>
                     <p class="price">Regular: $11.99<br>Large: $14.99</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Greek Salad</h2>
+                    <h3>Greek Salad</h3>
                     <p class="price">Regular: $9.99<br>Large: $11.99</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Greek Salad</h2>
+                    <h3>Chicken Greek Salad</h3>
                     <p class="price">Regular: $12.49<br>Large: $14.99</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Hummus</h2>
+                    <h3>Hummus</h3>
                     <p class="price">Small: $5.99<br>Large: $8.99</p>
                 </div>
             </div>
             
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Hummus with Chicken or Beef</h2>
+                    <h3>Hummus with Chicken or Beef</h3>
                     <p class="price">Regular: $8.99<br>Large: $11.99</p>
                 </div>
             </div>
@@ -559,12 +589,12 @@
     </article>
     
     <article class="menu-stuff-4 ">
-        <h2 class="menu-category-2">Party Trays</h2>
+        <h2 class="menu-category-2" id="trays">Party Trays</h2>
         <p class="category-description"></p>
         <section>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Hummus Tray</h2>
+                    <h3>Hummus Tray</h3>
                     <p></p>
                     <p class="price">Half: $25.00 <br>Full: $40.00</p>
                 </div>
@@ -572,13 +602,13 @@
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Fattoush Tray</h2>
+                    <h3>Fattoush Tray</h3>
                     <p class="price">Half: $30.00 <br>Full: $50.00</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Rice Tray</h2>
+                    <h3>Rice Tray</h3>
                     <p class="price">Half: $25.00 <br>Full: $40.00</p>
                 </div>
             </div>
@@ -586,77 +616,77 @@
     </article>
 
     <article class="menu-stuff-5 ">
-        <h2 class="menu-category">Homemade Stews, Soups, and Sides</h2>
+        <h2 class="menu-category" id="sides">Homemade Stews, Soups, and Sides</h2>
         <p class="category-description"></p>
         <section>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Seasoned Fries</h2>
+                    <h3>Seasoned Fries</h3>
                     <p class="price">Small: $3.99<br>Large: $5.99</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Pickled Cabbage</h2>
+                    <h3>Pickled Cabbage</h3>
                     <p class="price">Small: $3.00<br>Large: $6.00</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Onion Rings</h2>
+                    <h3>Onion Rings</h3>
                     <p class="price">$4.49</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Rice and Stew</h2>
+                    <h3>Rice and Stew</h3>
                     <p class="price">$9.00</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>6 pc Falafel</h2>
+                    <h3>6 pc Falafel</h3>
                     <p class="price">$5.99</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Garlic Sauce</h2>
+                    <h3>Garlic Sauce</h3>
                     <p class="price">Cup: $5.00<br>Bowl: $7.00</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Homemade Ranch</h2>
+                    <h3>Homemade Ranch</h3>
                     <p class="price">Cup: $3.50<br>Bowl: $5.00</p>
                 </div>
             </div>
 
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Chicken Lemon Rice</h2>
+                    <h3>Chicken Lemon Rice</h3>
                     <p class="price">Cup: $3.50<br>Bowl: $4.50</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Lentil</h2>
+                    <h3>Lentil</h3>
                     <p class="price">Cup: $3.50<br>Bowl: $4.50</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>Curry Potato</h2>
+                    <h3>Curry Potato</h3>
                     <p class="price">Cup: $4.00<br>Bowl: $5.00</p>
                 </div>
             </div>
             <div class="menu-item">
                 <div class="menu-item-info">
-                    <h2>White Bean in Red Sauce</h2>
+                    <h3>White Bean in Red Sauce</h3>
                     <p class="price">Cup: $4.00<br>Bowl: $5.00</p>
                 </div>
             </div>
@@ -666,12 +696,12 @@
     </article>
 
         <article class="menu-stuff-4 ">
-            <h2 class="menu-category-2">Trays To Go</h2>
+            <h2 class="menu-category-2" id="trays-to-go">Trays To Go</h2>
             <p class="category-description">All trays served with six (6) types of meat</p>
             <section>
                 <div class="menu-item">
                     <div class="menu-item-info">
-                        <h2>Tray #1 (for 2-3 people)</h2>
+                        <h3>Tray #1 (for 2-3 people)</h3>
                         <p>Served with 2 cups of stew or soup, veggies, pita</p>
                         <p class="price">$32.99</p>
                     </div>
@@ -679,7 +709,7 @@
     
                 <div class="menu-item">
                     <div class="menu-item-info">
-                        <h2>Tray #2 (for 3-4 people)</h2>
+                        <h3>Tray #2 (for 3-4 people)</h3>
                         <p>Served with 2 bowls of stew or soup, veggies, pita</p>
                         <p class="price">$42.99</p>
                     </div>
@@ -687,7 +717,7 @@
 
                 <div class="menu-item">
                     <div class="menu-item-info">
-                        <h2>Tray #3 (for 5-8 people)</h2>
+                        <h3>Tray #3 (for 5-8 people)</h3>
                         <p>Served with 2 bowls of stew, 1 bowl of soup, veggies, pita</p>
                         <p class="price">$62.99</p>
                     </div>
@@ -695,7 +725,7 @@
 
                 <div class="menu-item">
                     <div class="menu-item-info">
-                        <h2>Tray #4 (for 10-14 people)</h2>
+                        <h3>Tray #4 (for 10-14 people)</h3>
                         <p>Served with 2 bowls of stew, 2 bowls of soup, veggies, pita</p>
                         <p class="price">$109.99</p>
                     </div>
@@ -703,6 +733,7 @@
             </section>
         </article>
 
+</main>
 
         <!-- 
     - #FOOTER
@@ -716,8 +747,8 @@
 
         <div class="footer-brand has-before has-after">
 
-          <a href="#" class="logo">
-            <img src="./assets/images/branding/kabob-royale-logo.png" width="160" height="50" loading="lazy" alt="kabob royale home">
+          <a href="./index.html" class="logo" aria-label="Kabob Royale home">
+            <img src="./assets/images/branding/kabob-royale-logo.png" width="160" height="50" loading="lazy" alt="Kabob Royale">
           </a>
 
           <address class="body-4">
@@ -744,7 +775,7 @@
         <ul class="footer-list">
 
           <li>
-            <a href="#" class="label-2 footer-link hover-underline">Home</a>
+            <a href="./index.html" class="label-2 footer-link hover-underline">Home</a>
           </li>
 
           <li>
@@ -785,10 +816,6 @@
 
     </div>
   </footer>
-
-    </article>
-
-</main>
 
 <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
     <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
